@@ -52,4 +52,8 @@ public class DemoUtils {
         return wordsInQuote;
     }
 
+    public boolean isEven(int n){
+        return n % 2 ==0;
+    }
+
 }

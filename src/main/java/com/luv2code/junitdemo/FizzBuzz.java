@@ -2,11 +2,34 @@ package com.luv2code.junitdemo;
 
 public class FizzBuzz {
 
-    // FizzBuzz is a utility class
     private FizzBuzz() {
         throw new IllegalStateException("Utility class");
     }
 
+    public static String compute(int i) {
+        StringBuilder result = new StringBuilder();
+
+        if( i%3 == 0 )
+            result.append("Fizz");
+
+        if ( i%5 == 0 )
+            result.append("Buzz");
+
+        if (result.isEmpty())
+            return Integer.toString(i);
+
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            System.out.println(FizzBuzz.compute(i));
+        }
+    }
+
+}
+
+/*   old code
     public static String compute(int i) {
         if (i % 3 == 0 && i % 5 == 0) {
             return "FizzBuzz";
@@ -20,4 +43,4 @@ public class FizzBuzz {
             }
         }
     }
-}
+*/

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.time.Duration;
 import java.util.List;
@@ -125,4 +127,13 @@ class DemoUtilsTest {
     void testTimeout() {
         assertTimeoutPreemptively(Duration.ofSeconds(3), () -> demoUtils.checkTimeout(), "Method should execute in 3 seconds");
     }
+
+    @DisplayName("Test isEven")
+    @ParameterizedTest(name = "isEven({0})")
+    @ValueSource(ints = {2,4,6,16,0,-48})
+    void testEven(int a){
+        assertTrue(demoUtils.isEven(a),
+                () -> String.format("Expected isEven(%d) to return true", a) );
+    }
+
 }
