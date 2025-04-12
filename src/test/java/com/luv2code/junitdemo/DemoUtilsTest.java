@@ -2,6 +2,8 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -25,7 +27,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
+/*
+  Specifies the strategy used to determine the execution order of test methods in this class.
+  Available MethodOrderer options include:
+    - MethodOrderer.Random: Useful for detecting unintended dependencies between tests.
+    - MethodOrderer.DisplayName: Executes tests in alphabetical order based on their @DisplayName values.
+    - MethodOrderer.MethodName: Executes tests in alphabetical order based on method names.
+    - MethodOrderer.OrderAnnotation: Executes tests based on the @Order annotation value.
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
 class DemoUtilsTest {
 
 
@@ -56,7 +68,7 @@ class DemoUtilsTest {
     @DisplayName("Null and Not Null")
     @Order(0)
     void testNullAndNotNull() {
-        String str2 = "luv2code";
+        String str2 = "Not Null";
         assertNull(demoUtils.checkNull(null), "Object should be null");
         assertNotNull(demoUtils.checkNull(str2), "Object should not be null");
     }
@@ -64,9 +76,9 @@ class DemoUtilsTest {
     @DisplayName("Same and Not Same")
     @Test
     void testSameAndNotSame() {
-        String str = "luv2code";
-        assertSame(demoUtils.getAcademy(), demoUtils.getAcademyDuplicate(), "Objects should refer to same object");
-        assertNotSame(str, demoUtils.getAcademy(), "Objects should not refer to same object");
+        String str = "bye";
+        assertSame(demoUtils.getGreeting(), demoUtils.getGreetingDuplicated(), "Objects should refer to same object");
+        assertNotSame(str, demoUtils.getGreeting(), "Objects should not refer to same object");
     }
 
     @DisplayName("True and False")
@@ -89,16 +101,16 @@ class DemoUtilsTest {
     @DisplayName("Iterable equals")
     @Test
     void testIterableEquals() {
-        List<String> theList = List.of("luv", "2", "code");
-        assertIterableEquals(theList, demoUtils.getAcademyInList(), "Expected list should be same as actual list");
+        List<String> theList = List.of("eat", "sleep", "code","repeat");
+        assertIterableEquals(theList, demoUtils.getWordsInQuote(), "Expected list should be same as actual list");
     }
 
     @DisplayName("Lines match")
     @Test
     @Order(50)
     void testLinesMatch() {
-        List<String> theList = List.of("luv", "2", "code");
-        assertLinesMatch(theList, demoUtils.getAcademyInList(), "Lines should match");
+        List<String> theList = List.of("eat", "sleep", "code","repeat");
+        assertLinesMatch(theList, demoUtils.getWordsInQuote(), "Lines should match");
     }
 
     @DisplayName("Throws and Does Not Throw")

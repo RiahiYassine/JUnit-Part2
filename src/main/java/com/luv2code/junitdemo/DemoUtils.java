@@ -4,10 +4,10 @@ import java.util.List;
 
 public class DemoUtils {
 
-    private static final String academy = "Luv2Code Academy";
-    private static final String academyDuplicate = academy;
+    private static final String greeting = "Hello World";
+    private static final String greetingDuplicated = greeting;
     private static final String[] firstThreeLettersOfAlphabet = {"A", "B", "C"};
-    private static final List<String> academyInList = List.of("luv", "2", "code");
+    private static final List<String> wordsInQuote = List.of("eat", "sleep", "code","repeat");
 
 
     public int add(int a, int b) {
@@ -36,20 +36,20 @@ public class DemoUtils {
         Thread.sleep(2000);
     }
 
-    public String getAcademy() {
-        return academy;
+    public String getGreeting() {
+        return greeting;
     }
 
-    public String getAcademyDuplicate() {
-        return academyDuplicate;
+    public String getGreetingDuplicated() {
+        return greetingDuplicated;
     }
 
     public String[] getFirstThreeLettersOfAlphabet() {
         return firstThreeLettersOfAlphabet;
     }
 
-    public List<String> getAcademyInList() {
-        return academyInList;
+    public List<String> getWordsInQuote() {
+        return wordsInQuote;
     }
 
 }
