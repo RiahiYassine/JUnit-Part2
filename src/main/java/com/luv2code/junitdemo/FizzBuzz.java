@@ -21,7 +21,15 @@ public class FizzBuzz {
         return result.toString();
     }
 
-    /*   old code
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            System.out.println(FizzBuzz.compute(i));
+        }
+    }
+
+}
+
+/*   old code
     public static String compute(int i) {
         if (i % 3 == 0 && i % 5 == 0) {
             return "FizzBuzz";
@@ -35,5 +43,4 @@ public class FizzBuzz {
             }
         }
     }
-     */
-}
+*/
